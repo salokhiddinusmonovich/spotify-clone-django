@@ -53,10 +53,11 @@
             <div class="search-title">Top Artists</div>
         </header>
 
-        {% for mus in music %}
+
         <main style="padding-top:20px;">
+            
             <section style="margin-top:0px; padding:0px; overflow-x:auto; white-space:nowrap;">
-                <!-- Artist Card -->
+                {% for mus in music %}    <!-- Artist Card -->
                 <div class="artist-card">
                     <img src="{{ mus.artist_image.url }}" alt="{{ mus.title }}" style="width:150px; height:150px; border-radius:50%;">
                     <div class="artist-info">
@@ -64,9 +65,11 @@
                         <div class="artist-title">{{ mus.artiste }}</div> <!-- Fixed to show the artist's name -->
                     </div>
                 </div>
+                {% endfor %}
             </section>
+               
         </main>
-    {% endfor %}
+
 
 
 
@@ -79,18 +82,18 @@
           <!-- "Browse All" Section Title -->
           <div class="browse-all-title">Browse all</div>
 
-          <!-- "Browse All" Section Content -->
-      {% for mu in music %}
+
     <div class="browse-all">
-        <!-- Category Card -->
+       {% for mu in music %}
         <div class="category-card">
             <a href="{% url 'music' mu.id %}">
                 <img src="{{ mu.cover_image.url }}" alt="Podcasts">
             </a>
             <div class="category-title">{{ mu.title }}</div>
         </div>
+        {% endfor %}
     </div>
-{% endfor %}
+
 
 
         </main>
